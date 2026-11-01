@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/*
+  Tailwind's dark: variant applies when <html> has the "dark" class,
+  so the user picks the theme with a button instead of following the OS setting.
+*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Arabic/Latin font */
+@theme {
+  --font-sans: "Cairo Variable", system-ui, sans-serif;
+}
+
+/* Chart colors: light theme */
+:root {
+  --chart-done: #2a78d6;
+  --chart-due: #eb6834;
+  --tooltip-bg: #ffffff;
+  --tooltip-border: #e5e7eb;
+  --tooltip-text: #111827;
+}
+
+/* Chart colors: dark theme */
+.dark {
+  color-scheme: dark;
+  --chart-done: #3987e5;
+  --chart-due: #d95926;
+  --tooltip-bg: #111827;
+  --tooltip-border: #374151;
+  --tooltip-text: #f3f4f6;
+}
+
+body {
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Toast enter animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
